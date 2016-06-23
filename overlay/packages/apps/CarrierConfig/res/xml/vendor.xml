@@ -73,6 +73,8 @@
     <carrier_config mcc="234" mnc="30">
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
+        <boolean name="world_phone_bool" value="true" />
+        <boolean name="show_cdma_choices_bool" value="true" />
         <boolean name="prefer_2g_bool" value="false" />
         <boolean name="hide_ims_apn_bool" value="true" />
     </carrier_config>

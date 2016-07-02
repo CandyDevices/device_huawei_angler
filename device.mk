@@ -274,7 +274,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
     telephony.lteOnCdmaDevice=1 \
     persist.radio.mode_pref_nv10=1 \
-    ro.telephony.get_imsi_from_sim=true
+    ro.telephony.get_imsi_from_sim=true \
+    ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420,23594,27202,27205 \
+    ro.ril.oem.show.act=0 \
+    ro.ril.set.mtusize=1428 \
+    ro.ril.air.enabled=0 \
+    ro.ril.gsm.to.lte.blind.redir=0 \
+    ro.ril.roaming_lte.plmn=302220,302610,45400,45402,45410,45418 \
+    ro.ril.wp.feature=1 \
+    ro.cdma.data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000 \
+    ro.gsm.data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000 \
+    ro.gsm.2nd_data_retry_config=max_retries=infinite,0,0,60000,120000,480000,900000 \
+    ro.ril.hsxpa=4 \
+    ro.ril.hsdpa.category=14 \
+    ro.ril.hsupa.category=6 \
+    ro.ril.att.feature=0 \
+    ro.ril.vzw.feature=1 \
+    ro.config.svlte1x=true \
+    ro.ril.def.agps.mode=1 \
+    persist.radio.sib16_support=1 \
+    ro.ril.enable.gea3=1 \
+    ro.ril.gprsclass=12
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1

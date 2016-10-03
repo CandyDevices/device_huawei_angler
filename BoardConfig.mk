@@ -27,7 +27,7 @@ TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a7
+TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 
 ENABLE_CPUSETS := true
 
@@ -96,15 +96,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # Enable auto suspend in poweroff charging to save power
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
@@ -117,16 +108,15 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.angler
 
 TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
+
 # write vendor modules to system
-TARGET_COPY_OUT_VENDOR := system
+TARGET_COPY_OUT_VENDOR := vendor
 TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
 
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
 
 TARGET_USES_64_BIT_BINDER := true
-
-TARGET_USES_AOSP := true
 
 TARGET_USES_INTERACTION_BOOST := true
 
@@ -147,8 +137,12 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
-# Include an expanded selection of fonts
-EXTENDED_FONT_FOOTPRINT := true
+#GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
+
+# Testing related defines
+BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
@@ -157,7 +151,5 @@ BOARD_HARDWARE_CLASS := \
     device/huawei/angler/cmhw
 
 USE_CLANG_PLATFORM_BUILD := true
-
-TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 
 -include vendor/huawei/angler/BoardConfigVendor.mk

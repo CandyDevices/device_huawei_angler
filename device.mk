@@ -208,8 +208,8 @@ PRODUCT_PACKAGES += \
     mm-qcamera-app
 
 # Snap (Snapdragon) camera
-#PRODUCT_PACKAGES += \
-#    Snap
+PRODUCT_PACKAGES += \
+    Snap
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false

@@ -18,16 +18,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
 # Inherit some common validus stuff.
-$(call inherit-product, vendor/validus/config/common.mk)
-$(call inherit-product, vendor/validus/config/common_full_phone.mk)
+$(call inherit-product, vendor/candy/config/common.mk)
+$(call inherit-product, vendor/candy/config/common_full_phone.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/validus/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/candy/config/nfc_enhanced.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/huawei/angler/overlay-cm
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := validus_angler
+PRODUCT_NAME := candy_angler
 PRODUCT_DEVICE := angler
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6P
@@ -43,5 +43,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-	DEVICE_MAINTAINERS="Dustin Rinne (f100cleveland)"
+
